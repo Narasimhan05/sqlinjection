@@ -32,9 +32,7 @@ Select Multidae from the menu listed as shown above. You will get the page as di
 ![Screenshot 2024-04-28 204231](https://github.com/Narasimhan05/sqlinjection/assets/132819871/2e9ee144-ccdf-4925-8e03-bd325d1d40b4)
 
 Click on the link “Please register here”
-![Screenshot 2024-04-28 204250](https://github.com/Narasimhan05/sqlinjection/assets/132819871/3d642445-a645-4fac-8f3b-f6237b5f5c3e)
 
-Click on “Create Account” to display the following page:
 ![Screenshot 2024-04-28 204324](https://github.com/Narasimhan05/sqlinjection/assets/132819871/89ae561e-39eb-4880-9b86-2a12d19ef18a)
 
 The login structure we will use in our examples is straightforward. It contains two input fields (username and password), which are both vulnerable. The back-end content creates a query to approve the username and secret key given by the client. Here is an outline of the page rationale:
