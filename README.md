@@ -29,7 +29,7 @@ Use the above ip address to access the apache webserver of Metasploitable2 from 
 Select Multidae from the menu listed as shown above. You will get the page as displayed below:
 ![Screenshot 2024-04-28 204150](https://github.com/Narasimhan05/sqlinjection/assets/132819871/f98ae854-7e84-401d-8536-b9e5ec8bbbab)
 
-Select Multidae from the menu listed as shown above. You will get the page as displayed below:
+Click on the menu Login/Register and register for an account
 ![Screenshot 2024-04-28 204231](https://github.com/Narasimhan05/sqlinjection/assets/132819871/fdb1c2f2-3666-4c20-bbf0-0bfc7d65eacb)
 
 Click on the link “Please register here”
