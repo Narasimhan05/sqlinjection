@@ -27,13 +27,14 @@ Use the above ip address to access the apache webserver of Metasploitable2 from 
 ![Screenshot 2024-04-28 224449](https://github.com/Narasimhan05/sqlinjection/assets/132819871/778461cc-0803-438a-8795-ecc11d932061)
 
 Select Multidae from the menu listed as shown above. You will get the page as displayed below:
-![Screenshot 2024-04-28 224437](https://github.com/Narasimhan05/sqlinjection/assets/132819871/21b85a76-a006-4edf-ae93-b1803d0408f2)
+![Screenshot 2024-04-28 224442](https://github.com/Narasimhan05/sqlinjection/assets/132819871/3005b498-8e87-4587-b1fb-f80e99069f04)
 
 Click on the menu Login/Register and register for an account
-![Screenshot 2024-04-28 224430](https://github.com/Narasimhan05/sqlinjection/assets/132819871/8f33f1bb-c10c-40fa-91d9-0952998c6806)
+
+![Screenshot 2024-04-28 224437](https://github.com/Narasimhan05/sqlinjection/assets/132819871/21b85a76-a006-4edf-ae93-b1803d0408f2)
 
 Click on the link “Please register here”
-![Screenshot 2024-04-28 224442](https://github.com/Narasimhan05/sqlinjection/assets/132819871/3005b498-8e87-4587-b1fb-f80e99069f04)
+![Screenshot 2024-04-28 224430](https://github.com/Narasimhan05/sqlinjection/assets/132819871/8f33f1bb-c10c-40fa-91d9-0952998c6806)
 
 Click on “Create Account” to display the following page:
 ![Screenshot 2024-04-28 224425](https://github.com/Narasimhan05/sqlinjection/assets/132819871/9f93cbbd-eac2-4bcf-bc50-68bb7bbb07c9)
